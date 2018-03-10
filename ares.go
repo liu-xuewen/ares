@@ -61,13 +61,13 @@ func NewAPP(opts ...Option) *App {
 }
 
 func (app *App) loadOptions(opts ...Option) {
-	// 1.0 从NewApp方法参数中载入配置
+	// application options
 	var options = defaultOptions
 	for _, option := range opts {
 		option(&options)
 	}
 
-	// 2.0 从配置文件中载入配置
+	// load configurations
 	if mode := hera.GetString("app.mode"); mode != "" {
 		options.mode = mode
 	}
